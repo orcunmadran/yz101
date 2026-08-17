@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YZ101.tr | Türkiye'nin Yeni Nesil Yapay Zekâ Okulu</title>
+  <meta name="description" content="Sıfırdan ileri seviyeye uygulamalı yapay zekâ eğitimleri. ChatGPT, Claude, Midjourney, LLM Mühendisliği, RAG ve Otonom AI Ajanları ile geleceğinizi şekillendirin.">
+  <meta name="keywords" content="yapay zeka eğitimi, prompt mühendisliği, LLM kursu, RAG eğitimi, kurumsal yapay zeka, yz101, machine learning türkiye">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="YZ101.tr | Türkiye'nin Yeni Nesil Yapay Zekâ Okulu">
+  <meta property="og:description" content="Sıfırdan ileri seviyeye uygulamalı yapay zekâ eğitimleri. Proje odaklı müfredat ve canlı mentorluk.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yz101.tr">
+
+  <!-- Favicon / Brand Symbol -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230A0E17'/><circle cx='50' cy='50' r='32' fill='none' stroke='%2300F2FE' stroke-width='8'/><path d='M35 38 L50 65 L65 38' stroke='%2310B981' stroke-width='7' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='50' cy='50' r='6' fill='%2300F2FE'/></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-navy text-slate antialiased selection-accent">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" id="announcementBar">
+    <div class="container announcement-content">
+      <div class="announcement-badge">
+        <span class="pulse-dot"></span> Yeni Dönem Kayıtları Başladı
+      </div>
+      <p class="announcement-text">
+        <strong>Erken Kayıt İndirimi:</strong> İlk 50 katılımcıya özel <strong>%25 indirim</strong> kodu: <code class="promo-code">YZ101BASLA</code>
+      </p>
+      <button class="announcement-close" id="closeAnnouncement" aria-label="Duyuruyu Kapat">&times;</button>
+    </div>
+  </aside>
+
+  <!-- Navigation Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Logo -->
+      <a href="#hero" class="brand-logo" aria-label="YZ101 Ana Sayfa">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#111827" stroke="rgba(255,255,255,0.1)"/>
+            <path d="M12 14L20 28L28 14" stroke="#00F2FE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M28 26L20 12L12 26" stroke="#10B981" stroke-width="2" stroke-dasharray="2 2" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="3" fill="#6366F1"/>
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">YZ<span>101</span><span class="domain-badge">.tr</span></span>
+          <span class="logo-subtitle">Yapay Zekâ Okulu</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Ana Menü">
+        <ul class="nav-list">
+          <li><a href="#egitimler" class="nav-link">Eğitimler</a></li>
+          <li><a href="#seviye-testi" class="nav-link">Seviye Testi</a></li>
+          <li><a href="#prompt-lab" class="nav-link">Prompt Lab</a></li>
+          <li><a href="#yol-haritasi" class="nav-link">Yol Haritası</a></li>
+          <li><a href="#kurumsal" class="nav-link">Kurumsal</a></li>
+          <li><a href="#sss" class="nav-link">SSS</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button class="btn btn-secondary-ghost open-quiz-btn" id="headerQuizBtn">
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="10"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Hangi Eğitim?</span>
+        </button>
+        <button class="btn btn-primary open-enroll-modal" data-course="Genel Ön Başvuru">
+          <span>Ön Başvuru Yap</span>
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <nav class="mobile-nav">
+        <a href="#egitimler" class="mobile-nav-link">📚 Eğitimler</a>
+        <a href="#seviye-testi" class="mobile-nav-link">🎯 Seviye Testi</a>
+        <a href="#prompt-lab" class="mobile-nav-link">⚡ Prompt Lab (Demo)</a>
+        <a href="#yol-haritasi" class="mobile-nav-link">🗺️ Öğrenme Yol Haritası</a>
+        <a href="#kurumsal" class="mobile-nav-link">🏢 Kurumsal Çözümler</a>
+        <a href="#egitmenler" class="mobile-nav-link">👨‍🏫 Eğitmenler</a>
+        <a href="#sss" class="mobile-nav-link">❓ SSS</a>
+        <div class="mobile-drawer-cta">
+          <button class="btn btn-primary btn-block open-enroll-modal" data-course="Genel Ön Başvuru">
+            Hemen Ön Kayıt Yap
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="tag-icon">⚡</span>
+          <span>Türkiye'nin En Kapsamlı Uygulamalı Yapay Zekâ Akademisi</span>
+        </div>
+
+        <h1 class="hero-title">
+          Yapay Zekâ Çağında <br class="hidden-mobile">
+          <span class="text-highlight">Geleceğinizi</span> Şekillendirin.
+        </h1>
+
+        <p class="hero-description">
+          Prompt mühendisliğinden büyük dil modellerine (LLM), RAG sistemlerinden otonom AI ajanlarına kadar; teorik ezberle değil, <strong>15+ gerçek dünya projesiyle</strong> yapay zekâyı mesleğinize ve kariyerinize entegre edin.
+        </p>
+
+        <!-- Hero CTA Buttons -->
+        <div class="hero-cta-group">
+          <a href="#egitimler" class="btn btn-primary btn-lg">
+            <span>Eğitim Programlarını İncele</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#seviye-testi" class="btn btn-secondary-outline btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>Seviyeni Belirle (2 Dk)</span>
+          </a>
+        </div>
+
+        <!-- Trust Badges & Metrics -->
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <span class="metric-number">1.250+</span>
+            <span class="metric-label">Mezun & Öğrenci</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <span class="metric-number">%96</span>
+            <span class="metric-label">Memnuniyet Oranı</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <span class="metric-number">15+</span>
+            <span class="metric-label">Canlı Portföy Projesi</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <span class="metric-number">Birebir</span>
+            <span class="metric-label">Mentorluk Desteği</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Interactive Card -->
+      <div class="hero-visual">
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">yz101-ai-core v2.4 ~ live_learning</div>
+            <div class="terminal-badge">Canlı Simülasyon</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="t-prompt">yz101@academy:~$</span>
+              <span class="t-cmd">init AI_Career_Path --track="fullstack-ai"</span>
+            </div>
+            <div class="terminal-line t-response">
+              <span class="t-arrow">➜</span> [1/4] Temel Prompt Mühendisliği & LLM Mantığı <span class="t-done">✓ TAMAMLANDI</span>
+            </div>
+            <div class="terminal-line t-response">
+              <span class="t-arrow">➜</span> [2/4] No-Code Otomasyon & İş Akışı Entegrasyonu <span class="t-done">✓ TAMAMLANDI</span>
+            </div>
+            <div class="terminal-line t-response">
+              <span class="t-arrow">➜</span> [3/4] RAG Mimarisi & Vektör Veritabanları (Pinecone) <span class="t-active">⚙ İŞLENİYOR...</span>
+            </div>
+            <div class="terminal-line t-response">
+              <span class="t-arrow">➜</span> [4/4] Otonom AI Agent Sistemi & Üretim Dağıtımı <span class="t-waiting">⏳ SIRADA</span>
+            </div>
+            
+            <div class="terminal-code-box">
+              <div class="code-comment">// Canlı Proje Örneği: Özel Bilgi Tabanlı RAG Asistanı</div>
+              <span class="code-kw">const</span> agent = <span class="code-kw">new</span> <span class="code-cls">AutonomousAIAgent</span>({<br>
+              &nbsp;&nbsp;model: <span class="code-str">"claude-3-7-sonnet"</span>,<br>
+              &nbsp;&nbsp;memory: <span class="code-kw">new</span> <span class="code-cls">VectorStoreMemory</span>(),<br>
+              &nbsp;&nbsp;tools: [<span class="code-str">"web_search"</span>, <span class="code-str">"sql_executor"</span>, <span class="code-str">"chart_generator"</span>]<br>
+              });<br>
+              <span class="code-kw">await</span> agent.<span class="code-fn">executeMission</span>(<span class="code-str">"Şirket verilerini analiz et ve strateji raporu hazırla."</span>);
+            </div>
+
+            <div class="terminal-footer">
+              <div class="pulse-indicator">
+                <span class="pulse-ring"></span>
+                <span class="pulse-core"></span>
+              </div>
+              <span>YZ101 Canlı Eğitim Platformu Aktif</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Logos / Tools We Teach -->
+  <section class="tools-ticker-section">
+    <div class="container">
+      <p class="ticker-title">ÖĞRETTİĞİMİZ VE USTALAŞACAĞINIZ SEKTÖR LİDERİ YAPAY ZEKÂ TEKNOLOJİLERİ</p>
+      <div class="tools-grid">
+        <div class="tool-pill"><span class="tool-icon">🤖</span> OpenAI & ChatGPT</div>
+        <div class="tool-pill"><span class="tool-icon">🧠</span> Anthropic Claude</div>
+        <div class="tool-pill"><span class="tool-icon">✨</span> Google Gemini</div>
+        <div class="tool-pill"><span class="tool-icon">🎨</span> Midjourney v6</div>
+        <div class="tool-pill"><span class="tool-icon">🦜</span> LangChain</div>
+        <div class="tool-pill"><span class="tool-icon">🗂️</span> LlamaIndex</div>
+        <div class="tool-pill"><span class="tool-icon">🌲</span> Pinecone Vector DB</div>
+        <div class="tool-pill"><span class="tool-icon">⚡</span> Make & Zapier AI</div>
+        <div class="tool-pill"><span class="tool-icon">🐍</span> Python & PyTorch</div>
+        <div class="tool-pill"><span class="tool-icon">🚀</span> Hugging Face</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section (Müfredat Kataloğu) -->
+  <section class="courses-section section-padding" id="egitimler">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">MÜFREDAT VE PROGRAMLAR</div>
+        <h2 class="section-title">Hedefinize ve Seviyenize Uygun Eğitim Paketleri</h2>
+        <p class="section-subtitle">
+          İster sıfırdan yapay zekâya adım atın, ister yazılımcı olarak otonom LLM sistemleri inşa edin.
+        </p>
+      </div>
+
+      <!-- Course Category Filter Tabs -->
+      <div class="course-filters">
+        <button class="filter-btn active" data-filter="all">Tüm Eğitimler</button>
+        <button class="filter-btn" data-filter="temel">Temel Seviye (101)</button>
+        <button class="filter-btn" data-filter="is-dunyasi">İş Dünyası & No-Code</button>
+        <button class="filter-btn" data-filter="muhendislik">İleri Seviye Mühendislik</button>
+        <button class="filter-btn" data-filter="kurumsal">Kurumsal (B2B)</button>
+      </div>
+
+      <!-- Courses Grid -->
+      <div class="courses-grid" id="coursesGrid">
+        
+        <!-- Course Card 1: Temel AI 101 -->
+        <article class="course-card" data-category="temel">
+          <div class="course-badge badge-popular">En Çok Tercih Edilen</div>
+          <div class="course-header">
+            <div class="course-level-tag level-temel">BAŞLANGIÇ SEVİYESİ</div>
+            <h3 class="course-title">Yapay Zekâ & Üretken Araçlar 101</h3>
+            <p class="course-summary">
+              Yapay zekâyı sıfırdan öğrenin. ChatGPT, Claude ve Midjourney'yi profesyonel bir asistan gibi kullanarak günlük üretkenliğinizi 5 katına çıkarın.
+            </p>
+          </div>
+
+          <div class="course-features">
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>4 Hafta (16 Saat Canlı Ders)</span>
+            </div>
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>6 Pratik Uygulama & Şablon Arşivi</span>
+            </div>
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>YZ101 Başarı Sertifikası</span>
+            </div>
+          </div>
+
+          <div class="course-curriculum-preview">
+            <span class="preview-title">Öne Çıkan Modüller:</span>
+            <ul class="preview-list">
+              <li>LLM Temelleri & Prompt Mühendisliği İlkeleri</li>
+              <li>İleri Düzey Metin Analizi, Yazarlık ve Fikir Geliştirme</li>
+              <li>Midjourney & DALL-E ile Profesyonel Görsel Tasarımı</li>
+              <li>Kişisel GPT'ler ve Özel Asistan Mimarileri Kurma</li>
+            </ul>
+          </div>
+
+          <div class="course-footer">
+            <div class="price-box">
+              <span class="price-original">₺4.490</span>
+              <span class="price-current">₺3.290 <small>+KDV</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-course-details" data-course-id="temel-101">Müfredat Detayı</button>
+              <button class="btn btn-sm btn-primary open-enroll-modal" data-course="Yapay Zekâ & Üretken Araçlar 101">Ön Kayıt Ol</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Course Card 2: İş Dünyası & No-Code AI -->
+        <article class="course-card" data-category="is-dunyasi">
+          <div class="course-badge badge-featured">Kariyer & Verimlilik</div>
+          <div class="course-header">
+            <div class="course-level-tag level-orta">ORTA SEVİYE</div>
+            <h3 class="course-title">İş Dünyası & No-Code AI Otomasyonu</h3>
+            <p class="course-summary">
+              Kod yazmadan yapay zekâ destekli otonom iş akışları kurun. Make, Zapier, Notion ve AI entegrasyonlarıyla şirket operasyonlarınızı otomatikleştirin.
+            </p>
+          </div>
+
+          <div class="course-features">
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>5 Hafta (20 Saat Canlı Ders)</span>
+            </div>
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>8 Canlı No-Code Otomasyon Senaryosu</span>
+            </div>
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Birebir Proje Danışmanlığı</span>
+            </div>
+          </div>
+
+          <div class="course-curriculum-preview">
+            <span class="preview-title">Öne Çıkan Modüller:</span>
+            <ul class="preview-list">
+              <li>Make & Zapier ile Çok Adımlı AI Botları Üretme</li>
+              <li>Müşteri Hizmetleri ve E-posta Otomasyonları</li>
+              <li>Otomatik İçerik & Sosyal Medya Üretim Fabrikası</li>
+              <li>AI Destekli Veri Analizi, Excel/Sheet Raporlama</li>
+            </ul>
+          </div>
+
+          <div class="course-footer">
+            <div class="price-box">
+              <span class="price-original">₺6.200</span>
+              <span class="price-current">₺4.650 <small>+KDV</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-course-details" data-course-id="is-nocode">Müfredat Detayı</button>
+              <button class="btn btn-sm btn-primary open-enroll-modal" data-course="İş Dünyası & No-Code AI Otomasyonu">Ön Kayıt Ol</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Course Card 3: LLM & AI Engineering -->
+        <article class="course-card" data-category="muhendislik">
+          <div class="course-badge badge-pro">Geliştirici & Mühendis</div>
+          <div class="course-header">
+            <div class="course-level-tag level-ileri">İLERİ SEVİYE</div>
+            <h3 class="course-title">LLM Mühendisliği, RAG & AI Agents</h3>
+            <p class="course-summary">
+              Yazılımcılar için uçtan uca yapay zekâ mühendisliği. LangChain, LlamaIndex, Pinecone ile kurumsal RAG sistemleri ve otonom çoklu ajanlar (Multi-Agent) geliştirin.
+            </p>
+          </div>
+
+          <div class="course-features">
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>8 Hafta (32 Saat Canlı + Lab)</span>
+            </div>
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>5 GitHub Portföy Projesi (Production-ready)</span>
+            </div>
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Teknik Mülakat & Kod İnceleme Desteği</span>
+            </div>
+          </div>
+
+          <div class="course-curriculum-preview">
+            <span class="preview-title">Öne Çıkan Modüller:</span>
+            <ul class="preview-list">
+              <li>Python ile Embeddings, Chunking & Vektör DB Mimarisi</li>
+              <li>İleri Seviye RAG (Hybrid Search, Re-ranking, Self-Query)</li>
+              <li>LangGraph & CrewAI ile Otonom Ajan Sistemleri</li>
+              <li>LLM Değerlendirme (Eval), Fine-Tuning & Model Optimizasyonu</li>
+            </ul>
+          </div>
+
+          <div class="course-footer">
+            <div class="price-box">
+              <span class="price-original">₺9.900</span>
+              <span class="price-current">₺7.400 <small>+KDV</small></span>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-sm btn-outline view-course-details" data-course-id="llm-muhendislik">Müfredat Detayı</button>
+              <button class="btn btn-sm btn-primary open-enroll-modal" data-course="LLM Mühendisliği, RAG & AI Agents">Ön Kayıt Ol</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Course Card 4: Kurumsal B2B -->
+        <article class="course-card" data-category="kurumsal">
+          <div class="course-badge badge-b2b">Şirketlere Özel</div>
+          <div class="course-header">
+            <div class="course-level-tag level-kurumsal">KURUMSAL EĞİTİM</div>
+            <h3 class="course-title">Kurumsal Yapay Zekâ Adaptasyon Programı</h3>
+            <p class="course-summary">
+              Şirketinizin ekiplerine özel tasarlanmış atölyeler. Pazarlama, yazılım, İK, finans ve operasyon departmanlarının yapay zekâ verimliliğini güvenle artırın.
+            </p>
+          </div>
+
+          <div class="course-features">
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Esnek Süre (1 Günlük Bootcamp / 4 Haftalık Program)</span>
+            </div>
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>Şirket Verilerine Özel Vaka Çalışmaları</span>
+            </div>
+            <div class="cf-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>KVKK & Veri Güvenliği AI Uyumluluk Danışmanlığı</span>
+            </div>
+          </div>
+
+          <div class="course-curriculum-preview">
+            <span class="preview-title">Öne Çıkan Başlıklar:</span>
+            <ul class="preview-list">
+              <li>Departman Bazlı Özelleştirilmiş AI İş Akışları</li>
+              <li>Kurumsal Güvenli LLM Kullanımı & Veri İhlali Koruması</li>
+              <li>Şirket İçi Bilgi Tabanı (Private Knowledge Base) Entegrasyonu</li>
+              <li>Yönetici ve Karar Vericiler İçin AI Strateji Rehberi</li>
+            </ul>
+          </div>
+
+          <div class="course-footer">
+            <div class="price-box">
+              <span class="price-label">Teklif Alınız</span>
+              <span class="price-current">Özel Fiyatlandırma</span>
+            </div>
+            <div class="course-actions">
+              <a href="#kurumsal" class="btn btn-sm btn-primary">Kurumsal Teklif İste</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive AI Level Assessment Quiz Section -->
+  <section class="quiz-section section-padding" id="seviye-testi">
+    <div class="container">
+      <div class="quiz-wrapper">
+        <div class="quiz-intro">
+          <div class="section-badge">İNTERAKTİF SEVİYE TESPİTİ</div>
+          <h2 class="quiz-title">Hangi Yapay Zekâ Eğitimi Sizin İçin Uygun?</h2>
+          <p class="quiz-description">
+            4 basit soruyu yanıtlayın; mevcut teknik seviyenize, zamanınıza ve kariyer hedefinize en uygun eğitim paketini ve çalışma yol haritasını anında öğrenin.
+          </p>
+          <div class="quiz-meta-info">
+            <div class="meta-item">⏱️ Ortalama Süre: <strong>90 Saniye</strong></div>
+            <div class="meta-item">🎯 Kişiselleştirilmiş Sonuç & İndirim Kodu</div>
+          </div>
+        </div>
+
+        <!-- Quiz Container Box -->
+        <div class="quiz-box" id="quizContainer">
+          <!-- Step Indicators -->
+          <div class="quiz-progress-bar">
+            <div class="progress-fill" id="quizProgressFill" style="width: 25%;"></div>
+          </div>
+          <div class="quiz-steps-header">
+            <span id="quizStepText">Soru 1 / 4</span>
+            <span id="quizCategoryText">Mevcut Seviye</span>
+          </div>
+
+          <!-- Dynamic Question Area -->
+          <div class="quiz-question-area" id="quizQuestionArea">
+            <!-- Injected dynamically by quiz.js -->
+          </div>
+
+          <!-- Quiz Navigation -->
+          <div class="quiz-footer-nav">
+            <button class="btn btn-secondary-ghost" id="quizPrevBtn" style="display: none;">← Geri</button>
+            <button class="btn btn-primary" id="quizNextBtn" disabled>Devam Et →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Prompt Engineering Lab (Mini Simulator) -->
+  <section class="prompt-lab-section section-padding" id="prompt-lab">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">İNTERAKTİF PROMPT LABORATUVARI</div>
+        <h2 class="section-title">Profesyonel Prompt Mühendisliğini Deneyimleyin</h2>
+        <p class="section-subtitle">
+          Sıradan istekler ile profesyonel yapılandırılmış promptlar arasındaki farkı canlı olarak test edin. Şablonu özelleştirin ve yapay zekânın ürettiği yüksek kaliteli sonucu görün.
+        </p>
+      </div>
+
+      <div class="lab-container">
+        <!-- Controls Panel -->
+        <div class="lab-controls">
+          <div class="lab-control-group">
+            <label for="promptRole" class="lab-label">1. Rol Belirle (Persona):</label>
+            <select id="promptRole" class="lab-select">
+              <option value="lead-developer">Kıdemli Yapay Zekâ & Yazılım Mimarı</option>
+              <option value="growth-marketer">Büyüme & Dijital Pazarlama Stratejisti</option>
+              <option value="data-scientist">Kıdemli Veri Bilimci & İş Analisti</option>
+              <option value="startup-founder">Girişimci & Ürün Yöneticisi (CPO)</option>
+            </select>
+          </div>
+
+          <div class="lab-control-group">
+            <label for="promptTask" class="lab-label">2. Görev / Amaç:</label>
+            <select id="promptTask" class="lab-select">
+              <option value="code-review">Kod Güvenliği & Performans Analizi Yap</option>
+              <option value="marketing-plan">Yeni Ürün Lansmanı İçin 30 Günlük Büyüme Planı Çıkar</option>
+              <option value="data-insights">Müşteri Kayıp (Churn) Verilerini Yorumla ve Aksiyon Üret</option>
+              <option value="pitch-deck">Yatırımcı Sunumu İçin Değer Önerisi ve Metrik Özeti Hazırla</option>
+            </select>
+          </div>
+
+          <div class="lab-control-group">
+            <label for="promptFormat" class="lab-label">3. Çıktı Formatı:</label>
+            <select id="promptFormat" class="lab-select">
+              <option value="structured-table">Adım Adım Tablo & Öncelik Sıralamalı Liste</option>
+              <option value="executive-summary">Yönetici Özeti + 3 Kritik Risk + Aksiyon Planı</option>
+              <option value="code-json">Temiz Kod Bloğu + JSON Şeması + Açıklamalar</option>
+            </select>
+          </div>
+
+          <button class="btn btn-primary btn-block" id="generatePromptBtn">
+            ⚡ Profesyonel Prompt Oluştur & Simüle Et
+          </button>
+        </div>
+
+        <!-- Output & Simulation Panel -->
+        <div class="lab-output-panel">
+          <div class="output-block">
+            <div class="output-header">
+              <span class="output-title">📄 Oluşturulan Yapılandırılmış Prompt (Master Prompt)</span>
+              <button class="btn-copy-sm" id="copyPromptBtn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Kopyala</span>
+              </button>
+            </div>
+            <pre class="code-preview" id="promptTextOutput"></pre>
+          </div>
+
+          <div class="output-block response-preview-block">
+            <div class="output-header">
+              <span class="output-title">🤖 Yapay Zekâ Canlı Çıktı Simülasyonu</span>
+              <span class="output-status"><span class="pulse-dot"></span> Canlı Çıktı</span>
+            </div>
+            <div class="simulated-ai-response" id="aiResponseOutput"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Roadmap Section -->
+  <section class="roadmap-section section-padding" id="yol-haritasi">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">ÖĞRENME YOL HARİTASI</div>
+        <h2 class="section-title">Sıfırdan Yapay Zekâ Uzmanlığına 4 Adım</h2>
+        <p class="section-subtitle">
+          Adım adım planlanmış, net kazanımlarla desteklenen kariyer ve yetkinlik gelişim basamakları.
+        </p>
+      </div>
+
+      <div class="roadmap-timeline">
+        <!-- Step 1 -->
+        <div class="timeline-card">
+          <div class="timeline-step-num">01</div>
+          <div class="timeline-content">
+            <div class="timeline-tag">1. Aşama</div>
+            <h3 class="timeline-title">Temel YZ & Prompt Okuryazarlığı</h3>
+            <p class="timeline-desc">
+              Yapay zekâ modellerinin çalışma mantığını kavrayın. ChatGPT, Claude ve üretken görsel araçlarını gündelik işlerinizde bir süper güç haline getirin.
+            </p>
+            <div class="timeline-skills">
+              <span>Few-Shot Prompting</span>
+              <span>Context Management</span>
+              <span>Midjourney v6</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-card">
+          <div class="timeline-step-num">02</div>
+          <div class="timeline-content">
+            <div class="timeline-tag">2. Aşama</div>
+            <h3 class="timeline-title">No-Code Otomasyon & Süreç Entegrasyonu</h3>
+            <p class="timeline-desc">
+              Tekrarlayan işleri sıfıra indirin. AI destekli botlar ve Make/Zapier senaryoları ile iş akışlarınızı 7/24 çalışan otonom sistemlere dönüştürün.
+            </p>
+            <div class="timeline-skills">
+              <span>Make.com Entegrasyonları</span>
+              <span>Webhooks & API'ler</span>
+              <span>AI Destekli Veri Analizi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-card">
+          <div class="timeline-step-num">03</div>
+          <div class="timeline-content">
+            <div class="timeline-tag">3. Aşama</div>
+            <h3 class="timeline-title">RAG Sistemleri & Vektör Veritabanları</h3>
+            <p class="timeline-desc">
+              Şirket belgelerini ve özel verileri yapay zekâya bağlayın. Halüsinasyonları engelleyen, kaynak gösteren kurumsal arama ve soru-cevap asistanları kurun.
+            </p>
+            <div class="timeline-skills">
+              <span>LangChain & LlamaIndex</span>
+              <span>Pinecone / ChromaDB</span>
+              <span>Chunking & Hybrid Search</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-card">
+          <div class="timeline-step-num">04</div>
+          <div class="timeline-content">
+            <div class="timeline-tag">4. Aşama</div>
+            <h3 class="timeline-title">Otonom Çoklu Ajanlar (Multi-Agent Systems)</h3>
+            <p class="timeline-desc">
+              Karmaşık hedefleri kendi aralarında bölüşüp planlayan, kod yazıp test eden, araştırma yapan yapay zekâ ajan takımları inşa edin.
+            </p>
+            <div class="timeline-skills">
+              <span>LangGraph & CrewAI</span>
+              <span>Function Calling</span>
+              <span>Production AI Deployment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate / B2B Section -->
+  <section class="corporate-section section-padding" id="kurumsal">
+    <div class="container">
+      <div class="corporate-grid">
+        <div class="corporate-text">
+          <div class="section-badge badge-b2b">KURUMSAL EĞİTİM & DÖNÜŞÜM</div>
+          <h2 class="section-title">Şirketinizin Ekiplerini Yapay Zekâ ile Geleceğe Taşıyın</h2>
+          <p class="corporate-description">
+            Şirket içi verimliliği artırmak ve departmanlarınızın yapay zekâ adaptasyonunu hızlandırmak için özel müfredatlar hazırlıyoruz.
+          </p>
+          
+          <div class="corporate-benefits-list">
+            <div class="cb-item">
+              <div class="cb-icon">🎯</div>
+              <div class="cb-info">
+                <h4>Departmana Özel Vaka Çalışmaları</h4>
+                <p>Pazarlama, Satış, İK, Yazılım ve Finans ekiplerine doğrudan kendi iş süreçlerine özel pratik atölyeler.</p>
+              </div>
+            </div>
+
+            <div class="cb-item">
+              <div class="cb-icon">🔒</div>
+              <div class="cb-info">
+                <h4>KVKK ve Kurumsal Veri Güvenliği</h4>
+                <p>Şirket gizli verilerinin korunması, güvenli yerel LLM ve kurumsal hesap politikaları eğitimi.</p>
+              </div>
+            </div>
+
+            <div class="cb-item">
+              <div class="cb-icon">📊</div>
+              <div class="cb-info">
+                <h4>Ölçülebilir Verimlilik Raporu</h4>
+                <p>Eğitim sonrasında ekiplerin yapay zekâ kazanımlarını ve zaman tasarruflarını belgeleyen detaylı etki analizi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Corporate Contact Form Card -->
+        <div class="corporate-form-card">
+          <div class="form-header">
+            <h3>Kurumsal Teklif ve Bilgi Formu</h3>
+            <p>Ekiplerinizin ihtiyaçlarına özel eğitim programı teklifi hazırlayalım.</p>
+          </div>
+
+          <form id="corporateForm" class="corporate-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="corpName">Yetkili Adı Soyadı *</label>
+                <input type="text" id="corpName" name="name" required placeholder="Örn: Ahmet Yılmaz" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="corpCompany">Şirket Adı *</label>
+                <input type="text" id="corpCompany" name="company" required placeholder="Örn: ABC Teknoloji A.Ş." class="form-input">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="corpEmail">Kurumsal E-Posta *</label>
+                <input type="email" id="corpEmail" name="email" required placeholder="ahmet@sirket.com" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="corpPhone">Telefon Numarası *</label>
+                <input type="tel" id="corpPhone" name="phone" required placeholder="05XX XXX XX XX" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="corpTeamSize">Eğitim Alacak Kişi Sayısı</label>
+              <select id="corpTeamSize" name="teamSize" class="form-input">
+                <option value="5-15">5 - 15 Kişi (Butik Takım)</option>
+                <option value="15-50">15 - 50 Kişi (Departman Düzeyi)</option>
+                <option value="50+">50+ Kişi (Tüm Şirket)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="corpMessage">Eğitim İhtiyacı / Notlar</label>
+              <textarea id="corpMessage" name="message" rows="3" placeholder="Hangi departmanlar ve hangi alanlarda yapay zekâ eğitimi planlıyorsunuz?" class="form-input"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">
+              <span>Kurumsal Teklif Talebini Gönder</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructors / Eğitmenler Section -->
+  <section class="instructors-section section-padding" id="egitmenler">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">EĞİTMEN KADROSU</div>
+        <h2 class="section-title">Sektörde Aktif Projeler Üreten Uzmanlar</h2>
+        <p class="section-subtitle">
+          Akademik teoriyi değil, global teknoloji şirketlerinde ve startup ekosisteminde bizzat uygulanan canlı deneyimi aktarıyoruz.
+        </p>
+      </div>
+
+      <div class="instructors-grid">
+        <!-- Instructor 1 -->
+        <div class="instructor-card">
+          <div class="instructor-avatar-box">
+            <div class="avatar-placeholder avatar-1">
+              <span>AI</span>
+            </div>
+            <span class="instructor-status-tag">Baş Eğitmen</span>
+          </div>
+          <h3 class="instructor-name">Dr. Kerem Arslan</h3>
+          <p class="instructor-role">Yapay Zekâ Araştırmacısı & LLM Mimarı</p>
+          <p class="instructor-bio">
+            10+ yıllık yapay zekâ ve doğal dil işleme deneyimi. Stanford ve İTÜ mezunu. Türkiye'nin önde gelen kurumsal RAG projelerinin baş mimarı.
+          </p>
+          <div class="instructor-tags">
+            <span>LLM Mimarisi</span>
+            <span>RAG</span>
+            <span>LangChain</span>
+          </div>
+        </div>
+
+        <!-- Instructor 2 -->
+        <div class="instructor-card">
+          <div class="instructor-avatar-box">
+            <div class="avatar-placeholder avatar-2">
+              <span>EO</span>
+            </div>
+            <span class="instructor-status-tag">Otomasyon Lideri</span>
+          </div>
+          <h3 class="instructor-name">Ece Özdemir</h3>
+          <p class="instructor-role">No-Code AI & Büyüme Danışmanı</p>
+          <p class="instructor-bio">
+            Global SaaS şirketlerinde 500+ otonom iş akışı geliştirdi. Yapay zekâ ile pazarlama ve operasyon süreçlerinde 10x verimlilik modelleri kuruyor.
+          </p>
+          <div class="instructor-tags">
+            <span>Make & Zapier</span>
+            <span>AI Otomasyonu</span>
+            <span>İçerik Fabrikası</span>
+          </div>
+        </div>
+
+        <!-- Instructor 3 -->
+        <div class="instructor-card">
+          <div class="instructor-avatar-box">
+            <div class="avatar-placeholder avatar-3">
+              <span>BT</span>
+            </div>
+            <span class="instructor-status-tag">Görsel AI Uzmanı</span>
+          </div>
+          <h3 class="instructor-name">Burak Tuncer</h3>
+          <p class="instructor-role">Yaratıcı Yönetmen & Prompt Mühendisi</p>
+          <p class="instructor-bio">
+            Midjourney, Stable Diffusion ve ComfyUI alanında ödüllü görsel yönetmen. Reklam ajansları ve prodüksiyon şirketlerine üretken yapay zekâ danışmanlığı veriyor.
+          </p>
+          <div class="instructor-tags">
+            <span>Midjourney v6</span>
+            <span>ComfyUI</span>
+            <span>Prompt Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials & Reviews -->
+  <section class="testimonials-section section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-badge">MEZUN YORUMLARI</div>
+        <h2 class="section-title">Öğrencilerimiz Ne Diyor?</h2>
+        <p class="section-subtitle">YZ101 eğitimlerini tamamlayan profesyonellerin ve geliştiricilerin deneyimleri.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Yazılımcı olarak LLM Mühendisliği programına katıldım. Sadece API çağırmayı değil; Pinecone ile chunking stratejilerini, hybrid aramayı ve LangGraph mimarisini uçtan uca öğrendim. Şirketimizde ilk RAG projemizi hayata geçirdik."
+          </p>
+          <div class="student-info">
+            <div class="student-avatar">MK</div>
+            <div>
+              <strong class="student-name">Mert Korkmaz</strong>
+              <span class="student-title">Kıdemli Yazılım Geliştirici, FinTech</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Pazarlama ajansımızda içerik ve raporlama işlerimiz haftalarımızı alıyordu. No-Code AI eğitiminden sonra Make ve Claude entegrasyonuyla tüm analizlerimizi otomatik hale getirdik. Zaman tasarrufumuz inanılmaz."
+          </p>
+          <div class="student-info">
+            <div class="student-avatar">SD</div>
+            <div>
+              <strong class="student-name">Selin Demir</strong>
+              <span class="student-title">Pazarlama Direktörü</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Hiç teknik bilgim olmadan Başlangıç 101 kursuna katıldım. Prompt yazmanın ne kadar sistematik bir bilim olduğunu burada gördüm. Günlük işlerimi en az 3 kat daha hızlı bitiriyorum."
+          </p>
+          <div class="student-info">
+            <div class="student-avatar">TC</div>
+            <div>
+              <strong class="student-name">Tolga Çelik</strong>
+              <span class="student-title">Ürün Yöneticisi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section section-padding" id="sss">
+    <div class="container faq-container">
+      <div class="section-header text-center">
+        <div class="section-badge">SIKÇA SORULAN SORULAR</div>
+        <h2 class="section-title">Aklınıza Takılan Sorular</h2>
+        <p class="section-subtitle">Eğitim süreçleri, katılım koşulları ve sertifikasyon hakkında merak edilenler.</p>
+      </div>
+
+      <div class="faq-accordion" id="faqAccordion">
+        <!-- Item 1 -->
+        <div class="faq-item active">
+          <button class="faq-question" aria-expanded="true">
+            <span>Eğitimlere katılmak için kodlama veya teknik bilgi bilmek şart mı?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Hayır, eğitimlerimiz farklı seviyelere ayrılmıştır. <strong>"Yapay Zekâ 101"</strong> ve <strong>"No-Code AI Otomasyonu"</strong> programlarımız için herhangi bir kodlama bilgisi gerekmez. <strong>"LLM Mühendisliği & AI Agents"</strong> programımız ise temel Python ve yazılım bilgisine sahip geliştiricilere yöneliktir.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Dersler canlı mı yoksa kayıt şeklinde mi yapılıyor?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Tüm derslerimiz <strong>canlı ve interaktif</strong> olarak online ortamda gerçekleşir. Katılamadığınız derslerin yüksek çözünürlüklü video kayıtlarına, kod depolarına ve ders materyallerine YZ101 Öğrenci Paneli üzerinden ömür boyu erişebilirsiniz.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Eğitim sonunda sertifika veriliyor mu?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Evet. Program projelerini başarıyla tamamlayan tüm katılımcılarımıza, LinkedIn profillerine ve özgeçmişlerine ekleyebilecekleri doğrulanabilir dijital <strong>YZ101 Başarı Sertifikası</strong> verilir.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Öğrenci ve erken kayıt indirimleri mevcut mu?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Evet. Üniversite öğrencilerine özel %30 burs/indirim imkanı ve yeni dönem açılışlarında ilk kayıt olanlara %25 erken kayıt indirimi sunulmaktadır.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Eğitim sonrasında mentorluk ve topluluk desteği devam ediyor mu?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Kesinlikle. Tüm mezunlarımız özel <strong>YZ101 Discord Topluluğuna</strong> dahil olur. Burada haftalık soru-cevap oturumları, güncel AI gelişmeleri, proje incelemeleri ve iş/staj fırsatları paylaşılmaya devam eder.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Banner -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+          <h2 class="cta-title">Yapay Zekâ Dönüşümünüzü Ertelemeyin</h2>
+          <p class="cta-description">
+            Kontenjanlar sınırlıdır. Erken kayıt avantajından faydalanmak ve yerinizi ayırtmak için şimdi başvurun.
+          </p>
+          <div class="cta-actions">
+            <button class="btn btn-primary btn-lg open-enroll-modal" data-course="Genel Erken Kayıt">
+              <span>Hemen Ön Kayıt Yap</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="mailto:iletisim@yz101.tr" class="btn btn-secondary-outline btn-lg">
+              <span>Bize Ulaşın</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo">
+            <div class="logo-icon-wrapper">
+              <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="10" fill="#111827" stroke="rgba(255,255,255,0.1)"/>
+                <path d="M12 14L20 28L28 14" stroke="#00F2FE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M28 26L20 12L12 26" stroke="#10B981" stroke-width="2" stroke-dasharray="2 2" stroke-linecap="round"/>
+                <circle cx="20" cy="20" r="3" fill="#6366F1"/>
+              </svg>
+            </div>
+            <div class="logo-text-group">
+              <span class="logo-title">YZ<span>101</span><span class="domain-badge">.tr</span></span>
+              <span class="logo-subtitle">Yapay Zekâ Okulu</span>
+            </div>
+          </a>
+          <p class="footer-tagline">
+            Türkiye'nin yapay zekâ geleceğini şekillendiren, proje ve pratik odaklı yeni nesil teknoloji akademisi.
+          </p>
+          <div class="footer-contact-info">
+            <span>📍 İstanbul / Maslak & Online</span>
+            <span>✉️ iletisim@yz101.tr</span>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4 class="footer-heading">Eğitimler</h4>
+            <ul>
+              <li><a href="#egitimler" class="open-course-from-footer" data-course-id="temel-101">Yapay Zekâ 101</a></li>
+              <li><a href="#egitimler" class="open-course-from-footer" data-course-id="is-nocode">İş Dünyası & No-Code AI</a></li>
+              <li><a href="#egitimler" class="open-course-from-footer" data-course-id="llm-muhendislik">LLM Mühendisliği & RAG</a></li>
+              <li><a href="#kurumsal">Kurumsal Eğitimler</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Araçlar & Kaynaklar</h4>
+            <ul>
+              <li><a href="#seviye-testi">AI Seviye Testi</a></li>
+              <li><a href="#prompt-lab">Prompt Laboratuvarı</a></li>
+              <li><a href="#yol-haritasi">Kariyer Yol Haritası</a></li>
+              <li><a href="#sss">Sıkça Sorulan Sorular</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Bülten & Güncel Kalın</h4>
+            <p class="newsletter-desc">Haftalık Yapay Zekâ bültenimize abone olun, en yeni araç ve teknikleri kaçırmayın.</p>
+            <form id="newsletterForm" class="newsletter-form">
+              <input type="email" placeholder="E-posta adresiniz" required class="newsletter-input">
+              <button type="submit" class="newsletter-btn" aria-label="Abone Ol">➔</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2026 yz101.tr - Tüm Hakları Saklıdır. Yapay Zekâ 101 Eğitim Hizmetleri.</p>
+        <div class="footer-legal">
+          <a href="#" class="legal-link">KVKK Aydınlatma Metni</a>
+          <a href="#" class="legal-link">Gizlilik Politikası</a>
+          <a href="#" class="legal-link">Kullanım Şartları</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Course Curriculum Details Modal -->
+  <dialog class="app-modal" id="courseDetailModal" aria-labelledby="modalCourseTitle">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge" id="modalCourseLevel">SEVİYE</span>
+          <h2 class="modal-title" id="modalCourseTitle">Eğitim Başlığı</h2>
+        </div>
+        <button class="modal-close" id="closeCourseModal" aria-label="Kapat">&times;</button>
+      </div>
+
+      <div class="modal-body" id="modalCourseBody">
+        <!-- Content dynamically injected by app.js -->
+      </div>
+
+      <div class="modal-footer">
+        <div class="modal-price" id="modalCoursePrice">₺0.00</div>
+        <div class="modal-actions">
+          <button class="btn btn-secondary-ghost" id="closeCourseModalBtn">Kapat</button>
+          <button class="btn btn-primary" id="modalEnrollBtn">Bu Eğitime Ön Kayıt Ol</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Enrollment / Registration Modal -->
+  <dialog class="app-modal" id="enrollModal" aria-labelledby="enrollModalTitle">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card enroll-card">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge badge-popular">ÖN KAYIT FORMU</span>
+          <h2 class="modal-title" id="enrollModalTitle">Yapay Zekâ Eğitimine Başvurun</h2>
+          <p class="modal-subtitle">Bilgilerinizi bırakın, eğitim danışmanımız 24 saat içinde sizinle iletişime geçsin.</p>
+        </div>
+        <button class="modal-close" id="closeEnrollModal" aria-label="Kapat">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="enrollForm" class="enroll-form">
+          <div class="form-group">
+            <label for="enrollProgram">Seçilen Eğitim Programı *</label>
+            <select id="enrollProgram" name="program" class="form-input" required>
+              <option value="Yapay Zekâ & Üretken Araçlar 101">Yapay Zekâ & Üretken Araçlar 101 (Başlangıç)</option>
+              <option value="İş Dünyası & No-Code AI Otomasyonu">İş Dünyası & No-Code AI Otomasyonu (Orta Seviye)</option>
+              <option value="LLM Mühendisliği, RAG & AI Agents">LLM Mühendisliği, RAG & AI Agents (İleri Seviye)</option>
+              <option value="Kurumsal Özel Eğitim">Kurumsal Şirket Eğitimi (B2B)</option>
+              <option value="Genel Danışmanlık">Emin Değilim, Seviyeme Göre Tavsiye İstiyorum</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="enrollFullName">Adınız Soyadınız *</label>
+              <input type="text" id="enrollFullName" name="fullName" required placeholder="Adınız Soyadınız" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="enrollEmail">E-Posta Adresiniz *</label>
+              <input type="email" id="enrollEmail" name="email" required placeholder="ornek@domain.com" class="form-input">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="enrollPhone">Telefon Numaranız *</label>
+              <input type="tel" id="enrollPhone" name="phone" required placeholder="05XX XXX XX XX" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="enrollPromoCode">İndirim Kodu (Varsa)</label>
+              <input type="text" id="enrollPromoCode" name="promoCode" placeholder="Örn: YZ101BASLA" class="form-input text-uppercase">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="enrollGoal">Kariyer / Öğrenme Amacınız (İsteğe Bağlı)</label>
+            <textarea id="enrollGoal" name="goal" rows="2" placeholder="Yapay zekâyı hangi alanda ve ne amaçla kullanmak istiyorsunuz?" class="form-input"></textarea>
+          </div>
+
+          <div class="form-checkbox-group">
+            <input type="checkbox" id="enrollKvkk" required checked>
+            <label for="enrollKvkk">
+              <small><a href="#" class="text-link">KVKK ve İletişim Aydınlatma Metni</a>'ni okudum, kabul ediyorum.</small>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="enrollSubmitBtn">
+            <span>Ön Kaydımı Tamamla</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/prompt-lab.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
